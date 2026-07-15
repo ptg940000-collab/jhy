@@ -366,10 +366,7 @@ function renderRecommendation(data) {
   resultContent.hidden = false;
   copyBtn.disabled = false;
   if (data.source === "fallback") {
-    setStatus(
-      "로컬 추천을 표시했습니다.",
-      "서버 연결이 되지 않아 브라우저 내 로직으로 대체했습니다.",
-    );
+    setStatus("빠른 추천을 보여드렸어요.", "브라우저에서 바로 계산한 추천입니다.");
   } else {
     setStatus("추천이 준비되었습니다.", "아래 카드에서 페이스와 러닝화 종류를 확인하세요.");
   }
@@ -449,10 +446,7 @@ form.addEventListener("submit", async (event) => {
       goalDetail: inputs.goalDetail.value,
     });
     renderRecommendation(fallback);
-    setStatus(
-      "로컬 추천으로 전환했습니다.",
-      "서버에 연결할 수 없어 브라우저 내 기본 추천을 보여주고 있습니다.",
-    );
+    setStatus("빠른 추천을 보여드렸어요.", "브라우저에서 바로 계산한 추천입니다.");
     showError("");
   } finally {
     setBusy(false);
