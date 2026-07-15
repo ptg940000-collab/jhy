@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Running TEST | ?щ떇 ?섏씠??& ?щ떇??異붿쿇</title>
+    <meta
+      name="description"
+      content="泥댁쨷, ?? 紐⑺몴瑜??낅젰?섎㈃ ?곸젅???щ떇 ?섏씠?ㅼ? ?щ떇??醫낅쪟瑜?異붿쿇?섎뒗 ?뱁럹?댁?"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Running TEST</p>
+          <h1>紐멸낵 紐⑺몴??留욌뒗 ?щ떇 ?섏씠?ㅼ? ?щ떇?붾? 李얠븘蹂댁꽭??</h1>
+          <p class="lede">
+            泥댁쨷, ?? 紐⑺몴瑜??낅젰?섎㈃ AI媛 ?щ떇 ?섏씠?? ?щ떇??醫낅쪟, 二쇱쓽?ы빆源뚯?
+            ?쒓뎅???곸꽭 由ы룷?몃줈 ?뺣━???쒕┰?덈떎.
+          </p>
+
+          <div class="hero-points">
+            <span>?곸꽭 由ы룷??/span>
+            <span>?щ떇??異붿쿇</span>
+            <span>?덉쟾 二쇱쓽臾?/span>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="stat">
+            <strong>利됱떆 異붿쿇</strong>
+            <span>泥댁쨷 쨌 ??쨌 紐⑺몴 ?낅젰</span>
+          </div>
+          <div class="stat-grid">
+            <div class="stat-card">
+              <span>?섏씠??/span>
+              <strong>遺?km</strong>
+            </div>
+            <div class="stat-card">
+              <span>?щ떇??/span>
+              <strong>荑좎뀡 / ?덉젙??/strong>
+            </div>
+            <div class="stat-card">
+              <span>洹쇨굅</span>
+              <strong>?곸꽭 ?ㅻ챸</strong>
+            </div>
+            <div class="stat-card">
+              <span>?덉쟾</span>
+              <strong>二쇱쓽?ы빆</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="content-grid">
+        <form class="panel form-panel" id="recommend-form" novalidate>
+          <div class="panel-head">
+            <p class="eyebrow">?낅젰</p>
+            <h2>湲곕낯 ?뺣낫? 紐⑺몴瑜??뚮젮二쇱꽭??</h2>
+            <p>
+              ?レ옄媛 留욎? ?딆쑝硫?諛붾줈 ?덈궡?섍퀬, ?쒖텧 ?꾩뿉??AI媛 ?곸꽭 由ы룷?몃?
+              ?앹꽦?⑸땲??
+            </p>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>泥댁쨷 (kg)</span>
+              <input id="weightKg" name="weightKg" type="number" min="30" max="300" step="0.1" placeholder="?? 68" required />
+            </label>
+            <label class="field">
+              <span>??(cm)</span>
+              <input id="heightCm" name="heightCm" type="number" min="100" max="250" step="0.1" placeholder="?? 173" required />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>紐⑺몴</span>
+            <select id="goalType" name="goalType" required>
+              <option value="">紐⑺몴瑜??좏깮?섏꽭??/option>
+              <option value="泥댁쨷 媛먮웾">泥댁쨷 媛먮웾</option>
+              <option value="5km ?꾩＜">5km ?꾩＜</option>
+              <option value="10km ?꾩쟾">10km ?꾩쟾</option>
+              <option value="湲곕줉 ?μ긽">湲곕줉 ?μ긽</option>
+              <option value="遺???덈갑">遺???덈갑</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>紐⑺몴 ?ㅻ챸</span>
+            <textarea
+              id="goalDetail"
+              name="goalDetail"
+              rows="5"
+              placeholder="?? 8二??덉뿉 5km瑜?臾대━ ?놁씠 ?꾩＜?섍퀬 ?띠뼱??"
+              required
+            ></textarea>
+          </label>
+
+          <div class="sample-row" aria-label="?덉떆 ?낅젰">
+            <button type="button" class="sample-chip" data-sample="weightKg=63&heightCm=170&goalType=泥댁쨷 媛먮웾&goalDetail=臾대쫷 遺?댁쓣 以꾩씠硫댁꽌 媛蹂띻쾶 ?щ━怨??띠뼱??">泥댁쨷 媛먮웾</button>
+            <button type="button" class="sample-chip" data-sample="weightKg=72&heightCm=176&goalType=5km ?꾩＜&goalDetail=泥섏쓬 ?щ━湲곕? ?쒖옉?덇퀬 6二??덉뿉 5km ?꾩＜媛 紐⑺몴?덉슂.">5km ?꾩＜</button>
+            <button type="button" class="sample-chip" data-sample="weightKg=80&heightCm=180&goalType=湲곕줉 ?μ긽&goalDetail=10km 湲곕줉??議곌툑???뚯뼱?щ━怨??띠뼱??">湲곕줉 ?μ긽</button>
+          </div>
+
+          <button type="submit" class="primary-btn" id="submit-btn">異붿쿇諛쏄린</button>
+          <p class="hint" id="form-hint">
+            臾대━???띾룄蹂대떎 吏??媛?ν븳 ?щ떇???곗꽑?⑸땲??
+          </p>
+        </form>
+
+        <section class="panel result-panel" aria-live="polite">
+          <div class="panel-head result-head">
+            <div>
+              <p class="eyebrow">寃곌낵</p>
+              <h2>AI ?곸꽭 由ы룷??/h2>
+            </div>
+            <button type="button" class="ghost-btn" id="copy-btn" disabled>蹂듭궗</button>
+          </div>
+
+          <div class="status-box" id="status-box">
+            <strong>?낅젰 ??異붿쿇諛쏄린 踰꾪듉???뚮윭二쇱꽭??</strong>
+            <span>泥댁쨷, ?? 紐⑺몴瑜?諛뷀깢?쇰줈 ?щ떇 ?섏씠?ㅼ? ?щ떇??醫낅쪟瑜?異붿쿇?⑸땲??</span>
+          </div>
+
+          <p class="error" id="error-box" hidden></p>
+
+          <div class="result-content" id="result-content" hidden>
+            <article class="result-card summary-card">
+              <h3>?붿빟</h3>
+              <p id="summary-text"></p>
+            </article>
+
+            <div class="two-up">
+              <article class="result-card">
+                <h3>異붿쿇 ?섏씠??/h3>
+                <p class="result-strong" id="pace-range"></p>
+                <p id="pace-intensity"></p>
+                <p id="pace-explanation"></p>
+              </article>
+
+              <article class="result-card">
+                <h3>?щ떇??醫낅쪟</h3>
+                <p class="result-strong" id="shoe-type"></p>
+                <ul class="bullet-list" id="shoe-features"></ul>
+                <p id="shoe-fit-note"></p>
+              </article>
+            </div>
+
+            <article class="result-card">
+              <h3>異붿쿇 ?댁쑀</h3>
+              <ul class="bullet-list" id="reasoning-list"></ul>
+            </article>
+
+            <article class="result-card caution-card">
+              <h3>二쇱쓽?ы빆</h3>
+              <ul class="bullet-list" id="caution-list"></ul>
+            </article>
+
+            <article class="result-card">
+              <h3>?ㅽ뻾 ??/h3>
+              <ul class="bullet-list" id="next-steps-list"></ul>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
