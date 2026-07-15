@@ -34,6 +34,8 @@ body {
 
 body {
   min-height: 100vh;
+  word-break: keep-all;
+  line-break: strict;
 }
 
 button,
@@ -116,15 +118,26 @@ button {
 h1,
 h2,
 h3,
-p {
+h4,
+p,
+li,
+button,
+input,
+select,
+textarea,
+a {
   margin: 0;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 .hero h1 {
   max-width: 12ch;
   font-size: clamp(2.6rem, 5vw, 5rem);
   line-height: 0.96;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.075em;
+  text-wrap: balance;
   font-family: "Trebuchet MS", "Arial Rounded MT Bold", "Comic Sans MS", sans-serif;
 }
 
@@ -134,6 +147,7 @@ p {
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.75;
+  text-wrap: pretty;
 }
 
 .hero-points {
@@ -262,6 +276,7 @@ p {
 .panel-head h2 {
   font-size: clamp(1.4rem, 2vw, 2rem);
   letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .panel-head p {
@@ -430,6 +445,7 @@ p {
   margin-bottom: 10px;
   font-size: 1rem;
   color: #253249;
+  text-wrap: balance;
 }
 
 .result-strong {
@@ -544,6 +560,7 @@ p {
 .split-card p {
   color: var(--muted);
   line-height: 1.7;
+  text-wrap: pretty;
 }
 
 .link-chip {
@@ -591,6 +608,7 @@ p {
   border: 1px solid rgba(255, 122, 162, 0.14);
   color: var(--muted);
   line-height: 1.75;
+  text-wrap: pretty;
 }
 
 .tip-strip strong {
