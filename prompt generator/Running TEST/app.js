@@ -150,7 +150,7 @@ function buildFallbackRecommendation({ weightKg, heightCm, goalType, goalDetail 
   const pace = paceRange(paceCenter, paceSpread);
   return {
     source: "fallback",
-    summary: `${goalType} and your body stats suggest a pace around ${pace}. ${goalDetail}`,
+    summary: `${goalType} 목표와 체형 정보를 바탕으로 추천 페이스는 ${pace} 정도입니다. ${goalDetail}`,
     paceRecommendation: {
       paceRange: pace,
       intensity,
@@ -482,6 +482,29 @@ document.querySelectorAll(".sample-chip").forEach((button) => {
     inputs.goalType.value = params.get("goalType") || "";
     inputs.goalDetail.value = params.get("goalDetail") || "";
     setStatus("예시 입력을 적용했습니다.", "값을 수정한 뒤 추천받기를 눌러주세요.");
+  });
+});
+
+const tabButtons = document.querySelectorAll(".tab-btn[data-tab-target]");
+const tabPanels = document.querySelectorAll(".tab-panel[role='tabpanel']");
+
+function activateTab(targetId) {
+  tabButtons.forEach((button) => {
+    const isActive = button.dataset.tabTarget === targetId;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+
+  tabPanels.forEach((panel) => {
+    const isActive = panel.id === targetId;
+    panel.hidden = !isActive;
+    panel.classList.toggle("is-active", isActive);
+  });
+}
+
+tabButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    activateTab(button.dataset.tabTarget || "");
   });
 });
 

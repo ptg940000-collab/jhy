@@ -169,6 +169,255 @@
           </div>
         </section>
       </section>
+
+      <section class="panel extra-panel" aria-labelledby="extra-heading">
+        <div class="panel-head">
+          <p class="eyebrow">추가 콘텐츠</p>
+          <h2 id="extra-heading">러닝을 더 잘 즐기는 참고 모음</h2>
+          <p>
+            자세 교정 유튜브, 러닝화 계급도, 국내외 유명 마라톤을 탭으로 나눠서
+            빠르게 볼 수 있습니다.
+          </p>
+        </div>
+
+        <div class="tab-nav" role="tablist" aria-label="러닝 참고 콘텐츠">
+          <button
+            type="button"
+            class="tab-btn is-active"
+            id="tab-btn-youtube"
+            role="tab"
+            aria-selected="true"
+            aria-controls="tab-youtube"
+            data-tab-target="tab-youtube"
+          >
+            자세 교정 유튜브
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            id="tab-btn-shoes"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-shoes"
+            data-tab-target="tab-shoes"
+          >
+            러닝화 계급도
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            id="tab-btn-marathon"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-marathon"
+            data-tab-target="tab-marathon"
+          >
+            마라톤 종류
+          </button>
+        </div>
+
+        <div class="tab-panels">
+          <section
+            class="tab-panel is-active"
+            id="tab-youtube"
+            role="tabpanel"
+            aria-labelledby="tab-btn-youtube"
+          >
+            <div class="mini-grid">
+              <article class="mini-card">
+                <p class="eyebrow">기본기</p>
+                <h3>러닝 자세 교정 드릴</h3>
+                <p>
+                  상체 기울기, 팔치기, 시선 고정, 착지 리듬을 빠르게 점검할 수 있는
+                  검색용 추천입니다.
+                </p>
+                <a
+                  class="link-chip"
+                  href="https://www.youtube.com/results?search_query=%EB%9F%AC%EB%8B%9D+%EC%9E%90%EC%84%B8+%EA%B5%90%EC%A0%95"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  유튜브에서 찾기
+                </a>
+              </article>
+              <article class="mini-card">
+                <p class="eyebrow">발 착지</p>
+                <h3>오버스트라이드와 발 착지</h3>
+                <p>
+                  발이 몸보다 너무 앞에 떨어지는지, 착지가 과하게 세지 않은지 확인할
+                  때 도움이 됩니다.
+                </p>
+                <a
+                  class="link-chip"
+                  href="https://www.youtube.com/results?search_query=%EB%9F%AC%EB%8B%9D+%EC%98%A4%EB%B2%84%EC%8A%A4%ED%8A%B8%EB%9D%BC%EC%9D%B4%EB%93%9C+%EA%B5%90%EC%A0%95"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  검색해 보기
+                </a>
+              </article>
+              <article class="mini-card">
+                <p class="eyebrow">초보자</p>
+                <h3>초보 러닝 폼 만들기</h3>
+                <p>
+                  처음 달리는 분이라면 무릎과 종아리 부담을 줄이는 자세, 팔의 리듬,
+                  호흡을 같이 보세요.
+                </p>
+                <a
+                  class="link-chip"
+                  href="https://www.youtube.com/results?search_query=%EC%B4%88%EB%B3%B4+%EB%9F%AC%EB%8B%9D+%ED%8F%BC"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  초보 러닝 영상
+                </a>
+              </article>
+              <article class="mini-card">
+                <p class="eyebrow">보강 운동</p>
+                <h3>러닝 보강운동과 스트레칭</h3>
+                <p>
+                  고관절, 둔근, 종아리 보강 루틴을 함께 보면 자세 교정 효과가 더
+                  오래갑니다.
+                </p>
+                <a
+                  class="link-chip"
+                  href="https://www.youtube.com/results?search_query=%EB%9F%AC%EB%8B%9D+%EB%B3%B4%EA%B0%95%EC%9A%B4%EB%8F%99+%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%B9%AD"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  보강운동 보기
+                </a>
+              </article>
+            </div>
+            <div class="tip-strip">
+              유튜브는 <strong>한 번에 한 가지 포인트</strong>만 바꿔서 보는 게 좋아요.
+              예를 들면 오늘은 팔치기, 다음번은 발 착지처럼 나눠서 확인해 보세요.
+            </div>
+          </section>
+
+          <section
+            class="tab-panel"
+            id="tab-shoes"
+            role="tabpanel"
+            aria-labelledby="tab-btn-shoes"
+            hidden
+          >
+            <div class="tier-grid">
+              <article class="tier-card">
+                <p class="tier-label">입문 / 데일리</p>
+                <h3>기본으로 가장 많이 신는 구간</h3>
+                <p>처음 러닝을 시작하거나 일상 러닝을 편하게 즐길 때 좋습니다.</p>
+                <ul class="tag-list">
+                  <li>나이키 페가수스</li>
+                  <li>아디다스 SL</li>
+                  <li>ASICS 젤 큐물러스</li>
+                  <li>NB 880</li>
+                </ul>
+              </article>
+              <article class="tier-card">
+                <p class="tier-label">안정화 / 맥스 쿠션</p>
+                <h3>충격 흡수와 안정감을 우선할 때</h3>
+                <p>체중 부담이 있거나 회복주, 장거리 천천히 달리기에 잘 맞습니다.</p>
+                <ul class="tag-list">
+                  <li>ASICS 젤 카야노</li>
+                  <li>브룩스 고스트 / 글리세린</li>
+                  <li>브룩스 고스트 / 글리세린</li>
+                  <li>호카 본디 / 아라히</li>
+                </ul>
+              </article>
+              <article class="tier-card">
+                <p class="tier-label">올라운더 / 경량 트레이너</p>
+                <h3>가볍고 반응 좋은 훈련용</h3>
+                <p>템포주, 일상 훈련, 가벼운 인터벌까지 두루 쓰기 좋은 구간입니다.</p>
+                <ul class="tag-list">
+                  <li>ASICS 노바블라스트</li>
+                  <li>Saucony 라이드 / 킨바라</li>
+                  <li>HOKA 마하</li>
+                  <li>On 클라우드서퍼</li>
+                </ul>
+              </article>
+              <article class="tier-card">
+                <p class="tier-label">슈퍼 트레이너</p>
+                <h3>훈련 효율을 올리는 상위 구간</h3>
+                <p>논플레이트, 라이트 플레이트, 반발감 강한 라인업이 여기에 들어갑니다.</p>
+                <ul class="tag-list">
+                  <li>보스턴</li>
+                  <li>Endorphin Speed</li>
+                  <li>Zoom Fly</li>
+                  <li>Magic Speed</li>
+                </ul>
+              </article>
+              <article class="tier-card">
+                <p class="tier-label">레이싱</p>
+                <h3>기록용, 대회용, PB 도전용</h3>
+                <p>중거리와 장거리 레이스에 맞춰 가장 가볍고 강한 추진감을 노립니다.</p>
+                <ul class="tag-list">
+                  <li>Alphafly</li>
+                  <li>Adios Pro</li>
+                  <li>Metaspeed Sky</li>
+                  <li>SC Elite</li>
+                </ul>
+              </article>
+              <article class="tier-card">
+                <p class="tier-label">보는 법</p>
+                <h3>이미지 계급도에서 핵심만 기억하기</h3>
+                <p>
+                  입문화는 편안함, 안정화는 보호, 올라운더는 균형, 레이싱은 기록
+                  중심으로 보면 고르기 쉽습니다.
+                </p>
+                <ul class="tag-list">
+                  <li>편안함</li>
+                  <li>안정감</li>
+                  <li>반응성</li>
+                  <li>기록성</li>
+                </ul>
+              </article>
+            </div>
+            <div class="tip-strip">
+              계급도는 절대적인 순위보다 <strong>용도별 구분</strong>에 가깝습니다.
+              본인 체중, 발 모양, 목표에 맞는 구간을 고르는 게 더 중요합니다.
+            </div>
+          </section>
+
+          <section
+            class="tab-panel"
+            id="tab-marathon"
+            role="tabpanel"
+            aria-labelledby="tab-btn-marathon"
+            hidden
+          >
+            <div class="split-grid">
+              <article class="split-card">
+                <p class="eyebrow">국내 유명 마라톤</p>
+                <h3>한국에서 많이 찾는 대회</h3>
+                <ul class="bullet-list">
+                  <li>서울마라톤 - 기록 도전과 규모가 큰 대표 대회</li>
+                  <li>JTBC 서울마라톤 - 도심형 코스와 대중성이 강점</li>
+                  <li>춘천마라톤 - 러닝 분위기와 코스 경험이 좋음</li>
+                  <li>대구국제마라톤 - 빠른 기록을 노리기 좋은 대회</li>
+                  <li>제주국제마라톤 - 풍경이 매력적인 시즌형 대회</li>
+                </ul>
+              </article>
+              <article class="split-card">
+                <p class="eyebrow">해외 유명 마라톤</p>
+                <h3>월드 메이저와 대표 도시 대회</h3>
+                <ul class="bullet-list">
+                  <li>보스턴 - 전통과 언덕으로 유명한 클래식 대회</li>
+                  <li>런던 - 대도시의 분위기와 응원 열기가 강함</li>
+                  <li>베를린 - 기록이 잘 나오는 평탄한 코스로 유명</li>
+                  <li>시카고 - 빠른 기록과 안정적인 운영으로 인기</li>
+                  <li>뉴욕 - 도시 전체를 달리는 대표적인 대형 이벤트</li>
+                  <li>도쿄 - 깔끔한 운영과 도심 코스로 많이 선택됨</li>
+                </ul>
+              </article>
+            </div>
+            <div class="tip-strip">
+              처음 참가한다면 <strong>기록형 / 풍경형 / 도심형</strong> 중 하나를
+              먼저 고르고, 그다음에 코스 난이도와 이동 편의성을 비교해 보세요.
+            </div>
+          </section>
+        </div>
+      </section>
     </main>
 
     <script src="./app.js"></script>
