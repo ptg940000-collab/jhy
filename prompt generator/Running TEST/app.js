@@ -14,6 +14,55 @@ const inputs = {
 
 const renderedTextParts = [];
 
+const UI = {
+  title: "Running TEST | Running Pace & Shoe Recommendation",
+  description:
+    "Enter weight, height, and goal to get a recommended running pace and running shoe type.",
+  heroBadge: "Running TEST",
+  heroTitle: "Find the running pace and shoes that fit your body and goal.",
+  heroLead:
+    "Enter your weight, height, and goal, then AI will generate a detailed report with pace, shoe type, and safety notes.",
+  heroPoints: ["Detailed report", "Shoe recommendation", "Safety notes"],
+  statTitle: "Instant recommendation",
+  statSub: "Weight, height, goal",
+  statLabels: ["Pace", "Shoe", "Reason", "Safety"],
+  statValues: ["min/km", "Cushion / stability", "Detailed explanation", "Precautions"],
+  formBadge: "Input",
+  formTitle: "Tell us your basic information and goal.",
+  formLead:
+    "If the values are invalid, we will show a message immediately. After submit, AI will generate a detailed report.",
+  weightLabel: "Weight (kg)",
+  heightLabel: "Height (cm)",
+  weightPlaceholder: "e.g. 68",
+  heightPlaceholder: "e.g. 173",
+  goalLabel: "Goal",
+  goalPlaceholder: "Select your goal",
+  goalOptions: [
+    "Weight loss",
+    "5K finish",
+    "10K challenge",
+    "Improve pace",
+    "Injury prevention",
+  ],
+  detailLabel: "Goal details",
+  detailPlaceholder: "e.g. I want to finish 5K without overdoing it in 8 weeks.",
+  sampleLabels: ["Weight loss", "5K finish", "Improve pace"],
+  submitLabel: "Get recommendation",
+  hint: "We prioritize sustainable running over aggressive pace.",
+  resultBadge: "Result",
+  resultTitle: "AI detailed report",
+  copyLabel: "Copy",
+  initialStatusTitle: "Enter your info and press Get recommendation.",
+  initialStatusDetail:
+    "We will recommend a pace and shoe type based on weight, height, and goal.",
+  resultSummary: "Summary",
+  paceHeading: "Recommended pace",
+  shoeHeading: "Shoe type",
+  reasonHeading: "Why this recommendation",
+  cautionHeading: "Precautions",
+  nextHeading: "Next steps",
+};
+
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
@@ -38,111 +87,111 @@ function buildFallbackRecommendation({ weightKg, heightCm, goalType, goalDetail 
 
   let paceCenter = 6.6;
   let paceSpread = 0.35;
-  let shoeType = "데일리 쿠셔닝 러닝화";
+  let shoeType = "Daily cushioned running shoe";
   let shoeFeatures = [
-    "발 전체 충격을 고르게 받아주는 충분한 미드솔 쿠션",
-    "오래 달려도 무게감이 과하지 않은 안정적인 착화감",
-    "초보자도 부담 없이 쓰기 쉬운 만능형 지지력",
+    "Enough midsole cushion to distribute impact",
+    "Stable fit without feeling overly heavy",
+    "All-around support that works for beginners",
   ];
-  let intensity = "대화가 가능한 편안한 조깅 강도";
+  let intensity = "Comfortable jog where you can still talk";
 
-  if (goalType === "체중 감량") {
+  if (goalType === "Weight loss") {
     paceCenter = easyBody ? 7.6 : mediumBody ? 7.1 : 6.8;
     paceSpread = 0.4;
-    shoeType = "고쿠션 안정화 러닝화";
+    shoeType = "High-cushion stability shoe";
     shoeFeatures = [
-      "충격 흡수가 큰 두툼한 쿠션",
-      "착지 시 흔들림을 줄이는 넓은 플랫폼",
-      "장시간 걷기와 달리기를 함께 써도 편한 구조",
+      "Thick cushion to absorb impact",
+      "Wide platform to reduce wobble on landing",
+      "Comfortable for both walking and running",
     ];
-    intensity = "숨이 차지만 대화는 짧게 가능한 저강도 지속주";
-  } else if (goalType === "5km 완주") {
+    intensity = "Low-intensity steady run with short breathing room";
+  } else if (goalType === "5K finish") {
     paceCenter = easyBody ? 7.0 : 6.5;
     paceSpread = 0.35;
-    shoeType = "데일리 트레이너";
+    shoeType = "Daily trainer";
     shoeFeatures = [
-      "부드럽고 편한 쿠션으로 초반 적응이 쉬움",
-      "짧은 거리부터 5km까지 무난하게 대응",
-      "너무 공격적이지 않은 안정적인 추진감",
+      "Soft and comfortable for early adaptation",
+      "Works well from short runs up to 5K",
+      "Stable and not overly aggressive",
     ];
-    intensity = "처음엔 편하게, 후반부에만 약간 숨이 차는 페이스";
-  } else if (goalType === "10km 도전") {
+    intensity = "Easy at first, slightly breathy near the end";
+  } else if (goalType === "10K challenge") {
     paceCenter = mediumBody ? 6.2 : 5.9;
     paceSpread = 0.3;
-    shoeType = "가벼운 데일리-템포 겸용 러닝화";
+    shoeType = "Light daily-tempo shoe";
     shoeFeatures = [
-      "중간 거리에서 리듬을 살리기 좋은 반응성",
-      "장거리에서 피로를 줄이는 적당한 쿠션",
-      "훈련과 실전 모두 무난한 범용성",
+      "Responsive enough to keep a good rhythm",
+      "Balanced cushioning for longer runs",
+      "Versatile for training and race day",
     ];
-    intensity = "꾸준함을 유지하면서 페이스를 잃지 않는 강도";
-  } else if (goalType === "기록 향상") {
+    intensity = "Steady effort that keeps your pace from fading";
+  } else if (goalType === "Improve pace") {
     paceCenter = lightBody ? 5.2 : 5.5;
     paceSpread = 0.25;
-    shoeType = "템포 트레이너 또는 경량 반발형 러닝화";
+    shoeType = "Tempo trainer or lightweight rebound shoe";
     shoeFeatures = [
-      "템포런에서 리듬을 살리는 반발감",
-      "가벼운 무게로 발을 빠르게 회전시키기 쉬움",
-      "기록 훈련에 적당한 에너지 리턴",
+      "Bounce that helps tempo sessions feel smoother",
+      "Lightweight for quick turnover",
+      "Good energy return for pace work",
     ];
-    intensity = "숨이 차지만 폼을 유지할 수 있는 목표 페이스";
-  } else if (goalType === "부상 예방") {
+    intensity = "Breathable but controlled target pace";
+  } else if (goalType === "Injury prevention") {
     paceCenter = easyBody ? 7.8 : 7.2;
     paceSpread = 0.45;
-    shoeType = "최대 쿠셔닝 안정화 러닝화";
+    shoeType = "Max-cushion stability shoe";
     shoeFeatures = [
-      "착지 충격을 최대한 줄여주는 두꺼운 쿠션",
-      "발목과 무릎 부담을 덜어주는 안정성",
-      "천천히 오래 달리는 회복 러닝에 적합",
+      "Extra-soft cushioning to reduce impact",
+      "Support that helps protect ankles and knees",
+      "Best for recovery runs and easy mileage",
     ];
-    intensity = "무리가 없는 회복형 조깅 강도";
+    intensity = "Very easy recovery jog";
   }
 
   const pace = paceRange(paceCenter, paceSpread);
   return {
     source: "fallback",
-    summary: `${goalType} 목표와 체형 정보를 바탕으로, ${pace} 정도의 페이스가 가장 무난합니다. ${goalDetail}`,
+    summary: `${goalType} and your body stats suggest a pace around ${pace}. ${goalDetail}`,
     paceRecommendation: {
       paceRange: pace,
       intensity,
       explanation:
         bmi >= 28
-          ? "체중 대비 충격 부담을 줄이기 위해 너무 빠른 페이스보다 안정적인 호흡과 착지를 우선했습니다."
+          ? "We prioritized impact reduction and a stable landing pattern."
           : bmi >= 24
-            ? "지속 가능성과 훈련 적응을 함께 고려해, 무리 없는 페이스 범위를 잡았습니다."
-            : "기록보다 폼과 리듬을 먼저 살릴 수 있는 현실적인 페이스로 잡았습니다.",
+            ? "We balanced consistency with adaptation."
+            : "We chose a realistic pace that supports form and rhythm.",
     },
     shoeRecommendation: {
       type: shoeType,
       features: shoeFeatures,
       fitNote:
         bmi >= 28
-          ? "발볼이 편하고 쿠션이 넉넉한 모델을 우선 확인하세요."
+          ? "Look for a roomy toe box and generous cushioning."
           : bmi >= 24
-            ? "쿠션과 반응성의 균형이 좋은 중립형 모델이 잘 맞습니다."
-            : "가볍고 반응성이 좋은 모델도 선택지에 넣어볼 만합니다.",
+            ? "A neutral shoe with balanced cushioning should work well."
+            : "A lighter, more responsive shoe could also be a good option.",
     },
     reasoning: [
-      `체질량지수(BMI)가 약 ${bmi.toFixed(1)}로 계산되어, ${easyBody ? "충격 흡수와 안정성" : "지속 가능한 리듬"}을 우선했습니다.`,
-      `목표가 "${goalType}"이므로 ${goalType === "기록 향상" ? "페이스 효율" : "지속성"}을 먼저 맞추는 편이 안전합니다.`,
-      "러닝화는 발이 편한지, 착지 시 흔들림이 없는지, 그리고 30분 이상 신어도 불편하지 않은지를 기준으로 고르는 것이 좋습니다.",
+      `Your BMI is about ${bmi.toFixed(1)}, so we prioritized ${easyBody ? "impact absorption and stability" : "sustainable rhythm"}.`,
+      `Because your goal is "${goalType}", we focused on ${goalType === "Improve pace" ? "pace efficiency" : "consistency"} first.`,
+      "When choosing shoes, check comfort, landing stability, and whether they still feel good after 30 minutes.",
     ],
     cautions: [
-      "처음부터 목표 페이스를 오래 유지하려 하지 말고, 10분 단위로 천천히 늘리세요.",
-      "무릎, 발목, 종아리 통증이 생기면 즉시 강도를 낮추고 휴식을 우선하세요.",
-      "체중이 높을수록 페이스보다 러닝 자세와 회복이 더 중요합니다.",
+      "Do not start at the target pace for long sessions right away. Build gradually.",
+      "If you feel knee, ankle, or calf pain, lower the intensity and rest.",
+      "The higher your weight, the more important form and recovery become.",
     ],
     nextSteps: [
-      "첫 2주는 추천 페이스보다 15~30초 느리게 시작해 몸의 반응을 확인하세요.",
-      "러닝화는 매장에서 양말 포함 착화 후 발가락 공간과 뒤꿈치 고정감을 확인하세요.",
-      "주 2~3회부터 시작해, 무리가 없을 때만 거리와 시간을 조금씩 늘리세요.",
+      "For the first 2 weeks, run 15-30 seconds slower than the recommendation.",
+      "Try shoes with running socks on and check toe space and heel hold.",
+      "Start with 2-3 runs per week, then increase only when your body feels ready.",
     ],
   };
 }
 
 function setBusy(isBusy) {
   submitBtn.disabled = isBusy;
-  submitBtn.textContent = isBusy ? "추천 생성 중..." : "추천받기";
+  submitBtn.textContent = isBusy ? "Generating..." : UI.submitLabel;
 }
 
 function showError(message) {
@@ -180,8 +229,101 @@ function fillList(element, items) {
   }
 }
 
+function localizeStaticText() {
+  document.title = UI.title;
+  const descriptionTag = document.querySelector('meta[name="description"]');
+  if (descriptionTag) descriptionTag.setAttribute("content", UI.description);
+
+  const heroCopy = document.querySelector(".hero-copy");
+  if (heroCopy) {
+    const eyebrow = heroCopy.querySelector(".eyebrow");
+    const h1 = heroCopy.querySelector("h1");
+    const lead = heroCopy.querySelector(".lede");
+    const points = heroCopy.querySelectorAll(".hero-points span");
+    if (eyebrow) eyebrow.textContent = UI.heroBadge;
+    if (h1) h1.textContent = UI.heroTitle;
+    if (lead) lead.textContent = UI.heroLead;
+    points.forEach((el, index) => {
+      el.textContent = UI.heroPoints[index] || "";
+    });
+  }
+
+  const statPanel = document.querySelector(".hero-panel");
+  if (statPanel) {
+    const statStrong = statPanel.querySelector(".stat strong");
+    const statSpan = statPanel.querySelector(".stat span");
+    const statCards = statPanel.querySelectorAll(".stat-card");
+    if (statStrong) statStrong.textContent = UI.statTitle;
+    if (statSpan) statSpan.textContent = UI.statSub;
+    statCards.forEach((card, index) => {
+      const label = card.querySelector("span");
+      const value = card.querySelector("strong");
+      if (label) label.textContent = UI.statLabels[index] || "";
+      if (value) value.textContent = UI.statValues[index] || "";
+    });
+  }
+
+  const formPanel = document.querySelector(".form-panel");
+  if (formPanel) {
+    const badge = formPanel.querySelector(".panel-head .eyebrow");
+    const title = formPanel.querySelector(".panel-head h2");
+    const lead = formPanel.querySelector(".panel-head p");
+    const fieldLabels = formPanel.querySelectorAll(".field > span");
+    const inputsList = formPanel.querySelectorAll("input, textarea");
+    const select = formPanel.querySelector("select");
+    const sampleButtons = formPanel.querySelectorAll(".sample-chip");
+    const hint = formPanel.querySelector(".hint");
+
+    if (badge) badge.textContent = UI.formBadge;
+    if (title) title.textContent = UI.formTitle;
+    if (lead) lead.textContent = UI.formLead;
+    if (fieldLabels[0]) fieldLabels[0].textContent = UI.weightLabel;
+    if (fieldLabels[1]) fieldLabels[1].textContent = UI.heightLabel;
+    if (fieldLabels[2]) fieldLabels[2].textContent = UI.goalLabel;
+    if (fieldLabels[3]) fieldLabels[3].textContent = UI.detailLabel;
+
+    if (inputsList[0]) inputsList[0].placeholder = UI.weightPlaceholder;
+    if (inputsList[1]) inputsList[1].placeholder = UI.heightPlaceholder;
+    if (inputsList[2]) inputsList[2].placeholder = UI.detailPlaceholder;
+    if (select) {
+      select.options[0].textContent = UI.goalPlaceholder;
+      UI.goalOptions.forEach((text, index) => {
+        if (select.options[index + 1]) select.options[index + 1].textContent = text;
+      });
+    }
+
+    sampleButtons.forEach((button, index) => {
+      button.textContent = UI.sampleLabels[index] || "";
+    });
+
+    if (hint) hint.textContent = UI.hint;
+    if (submitBtn) submitBtn.textContent = UI.submitLabel;
+  }
+
+  const resultPanel = document.querySelector(".result-panel");
+  if (resultPanel) {
+    const badge = resultPanel.querySelector(".panel-head .eyebrow");
+    const title = resultPanel.querySelector(".panel-head h2");
+    const copy = resultPanel.querySelector("#copy-btn");
+    const statusStrong = statusBox.querySelector("strong");
+    const statusSpan = statusBox.querySelector("span");
+    const headings = resultPanel.querySelectorAll(".result-card h3");
+    if (badge) badge.textContent = UI.resultBadge;
+    if (title) title.textContent = UI.resultTitle;
+    if (copy) copy.textContent = UI.copyLabel;
+    if (statusStrong) statusStrong.textContent = UI.initialStatusTitle;
+    if (statusSpan) statusSpan.textContent = UI.initialStatusDetail;
+    if (headings[0]) headings[0].textContent = UI.resultSummary;
+    if (headings[1]) headings[1].textContent = UI.paceHeading;
+    if (headings[2]) headings[2].textContent = UI.shoeHeading;
+    if (headings[3]) headings[3].textContent = UI.reasonHeading;
+    if (headings[4]) headings[4].textContent = UI.cautionHeading;
+    if (headings[5]) headings[5].textContent = UI.nextHeading;
+  }
+}
+
 function renderRecommendation(data) {
-  document.getElementById("summary-text").textContent = data.summary || "추천 요약이 없습니다.";
+  document.getElementById("summary-text").textContent = data.summary || "No summary available.";
   document.getElementById("pace-range").textContent = data.paceRecommendation?.paceRange || "-";
   document.getElementById("pace-intensity").textContent = data.paceRecommendation?.intensity || "";
   document.getElementById("pace-explanation").textContent =
@@ -194,9 +336,18 @@ function renderRecommendation(data) {
   );
   document.getElementById("shoe-fit-note").textContent = data.shoeRecommendation?.fitNote || "";
 
-  fillList(document.getElementById("reasoning-list"), Array.isArray(data.reasoning) ? data.reasoning : []);
-  fillList(document.getElementById("caution-list"), Array.isArray(data.cautions) ? data.cautions : []);
-  fillList(document.getElementById("next-steps-list"), Array.isArray(data.nextSteps) ? data.nextSteps : []);
+  fillList(
+    document.getElementById("reasoning-list"),
+    Array.isArray(data.reasoning) ? data.reasoning : [],
+  );
+  fillList(
+    document.getElementById("caution-list"),
+    Array.isArray(data.cautions) ? data.cautions : [],
+  );
+  fillList(
+    document.getElementById("next-steps-list"),
+    Array.isArray(data.nextSteps) ? data.nextSteps : [],
+  );
 
   clearResultText();
   addRenderedText(
@@ -216,11 +367,11 @@ function renderRecommendation(data) {
   copyBtn.disabled = false;
   if (data.source === "fallback") {
     setStatus(
-      "로컬 규칙 추천이 준비되었습니다.",
-      "OpenAI 연결이 어려운 환경에서도 기본 추천을 확인할 수 있습니다.",
+      "Local recommendation is ready.",
+      "We fell back to in-browser logic because the server was unavailable.",
     );
   } else {
-    setStatus("추천이 준비되었습니다.", "아래 카드에서 러닝 페이스와 러닝화 추천을 확인하세요.");
+    setStatus("Recommendation is ready.", "Check the cards below for your pace and shoe type.");
   }
 }
 
@@ -236,16 +387,16 @@ function validateForm() {
   const goalDetail = inputs.goalDetail.value.trim();
 
   if (!Number.isFinite(weightKg) || weightKg < 30 || weightKg > 300) {
-    return "체중은 30kg 이상 300kg 이하의 숫자로 입력해 주세요.";
+    return "Weight must be a number between 30 and 300 kg.";
   }
   if (!Number.isFinite(heightCm) || heightCm < 100 || heightCm > 250) {
-    return "키는 100cm 이상 250cm 이하의 숫자로 입력해 주세요.";
+    return "Height must be a number between 100 and 250 cm.";
   }
   if (!goalType) {
-    return "목표를 선택해 주세요.";
+    return "Please select a goal.";
   }
   if (!goalDetail) {
-    return "목표 설명을 입력해 주세요.";
+    return "Please enter a short goal description.";
   }
 
   return null;
@@ -259,12 +410,15 @@ form.addEventListener("submit", async (event) => {
   if (validationError) {
     showError(validationError);
     hideResults();
-    setStatus("입력값을 확인해 주세요.", "체중, 키, 목표를 다시 점검한 뒤 추천받기를 눌러주세요.");
+    setStatus(
+      "Please check your inputs.",
+      "Review your weight, height, and goal, then press Get recommendation again.",
+    );
     return;
   }
 
   setBusy(true);
-  setStatus("추천을 생성하는 중입니다.", "잠시만 기다리면 AI 상세 리포트가 표시됩니다.");
+  setStatus("Generating recommendation...", "Please wait while the detailed report is prepared.");
   hideResults();
 
   try {
@@ -283,11 +437,11 @@ form.addEventListener("submit", async (event) => {
 
     const data = await response.json();
     if (!response.ok) {
-      throw new Error(data.error || "추천 생성에 실패했습니다.");
+      throw new Error(data.error || "Recommendation generation failed.");
     }
 
     renderRecommendation(data.recommendation);
-  } catch (error) {
+  } catch {
     const fallback = buildFallbackRecommendation({
       weightKg: Number(inputs.weightKg.value),
       heightCm: Number(inputs.heightCm.value),
@@ -296,8 +450,8 @@ form.addEventListener("submit", async (event) => {
     });
     renderRecommendation(fallback);
     setStatus(
-      "로컬 추천으로 전환되었습니다.",
-      "서버 연결이 어려워 브라우저 안의 기본 로직으로 결과를 보여줍니다.",
+      "Switched to local recommendation.",
+      "The browser is showing a built-in fallback because the server could not be reached.",
     );
     showError("");
   } finally {
@@ -311,12 +465,12 @@ copyBtn.addEventListener("click", async () => {
 
   try {
     await navigator.clipboard.writeText(text);
-    copyBtn.textContent = "복사 완료";
+    copyBtn.textContent = "Copied";
     window.setTimeout(() => {
-      copyBtn.textContent = "복사";
+      copyBtn.textContent = UI.copyLabel;
     }, 1500);
   } catch {
-    showError("복사를 지원하지 않는 환경입니다.");
+    showError("Copy is not supported in this environment.");
   }
 });
 
@@ -327,6 +481,8 @@ document.querySelectorAll(".sample-chip").forEach((button) => {
     inputs.heightCm.value = params.get("heightCm") || "";
     inputs.goalType.value = params.get("goalType") || "";
     inputs.goalDetail.value = params.get("goalDetail") || "";
-    setStatus("예시 입력이 적용되었습니다.", "내용을 수정한 뒤 추천받기를 눌러보세요.");
+    setStatus("Sample input applied.", "Edit the values and press Get recommendation.");
   });
 });
+
+localizeStaticText();
