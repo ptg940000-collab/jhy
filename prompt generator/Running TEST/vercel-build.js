@@ -15,4 +15,13 @@ fs.copyFileSync(source, target);
 fs.copyFileSync(path.join(__dirname, "styles.css"), path.join(outputDir, "styles.css"));
 fs.copyFileSync(path.join(__dirname, "app.js"), path.join(outputDir, "app.js"));
 
-console.log("Vercel build prepared vercel-dist with HTML, CSS, and JS");
+const apiSource = path.join(__dirname, "api", "recommend.js");
+const apiOutputDir = path.join(outputDir, "api");
+const apiTarget = path.join(apiOutputDir, "recommend.js");
+
+if (fs.existsSync(apiSource)) {
+  fs.mkdirSync(apiOutputDir, { recursive: true });
+  fs.copyFileSync(apiSource, apiTarget);
+}
+
+console.log("Vercel build prepared vercel-dist with HTML, CSS, JS, and API");
