@@ -1,5 +1,11 @@
 node_modules
 dist
+vercel-dist
+package.json
+package-lock.json
+main.js
+server.js
+README.md
 *.exe
 *.blockmap
 *.7z
