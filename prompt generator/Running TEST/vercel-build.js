@@ -2,12 +2,17 @@ const fs = require("fs");
 const path = require("path");
 
 const source = path.join(__dirname, "Running sam.html");
-const target = path.join(__dirname, "index.html");
+const outputDir = path.join(__dirname, "vercel-dist");
+const target = path.join(outputDir, "index.html");
 
 if (!fs.existsSync(source)) {
   throw new Error("Running sam.html file is missing.");
 }
 
+fs.rmSync(outputDir, { recursive: true, force: true });
+fs.mkdirSync(outputDir, { recursive: true });
 fs.copyFileSync(source, target);
-console.log("Vercel build prepared index.html from Running sam.html");
+fs.copyFileSync(path.join(__dirname, "styles.css"), path.join(outputDir, "styles.css"));
+fs.copyFileSync(path.join(__dirname, "app.js"), path.join(outputDir, "app.js"));
 
+console.log("Vercel build prepared vercel-dist with HTML, CSS, and JS");

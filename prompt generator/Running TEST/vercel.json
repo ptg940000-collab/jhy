@@ -1,9 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ]
+  "buildCommand": "node vercel-build.js",
+  "outputDirectory": "vercel-dist"
 }
