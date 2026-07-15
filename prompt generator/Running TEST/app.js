@@ -15,52 +15,52 @@ const inputs = {
 const renderedTextParts = [];
 
 const UI = {
-  title: "Running TEST | Running Pace & Shoe Recommendation",
+  title: "Running TEST | 러닝 페이스 & 러닝화 추천",
   description:
-    "Enter weight, height, and goal to get a recommended running pace and running shoe type.",
+    "체중, 키, 목표를 입력하면 러닝 페이스와 러닝화 종류를 추천해 드립니다.",
   heroBadge: "Running TEST",
-  heroTitle: "Find the running pace and shoes that fit your body and goal.",
+  heroTitle: "몸과 목표에 맞는 러닝 페이스와 러닝화를 찾아보세요.",
   heroLead:
-    "Enter your weight, height, and goal, then AI will generate a detailed report with pace, shoe type, and safety notes.",
-  heroPoints: ["Detailed report", "Shoe recommendation", "Safety notes"],
-  statTitle: "Instant recommendation",
-  statSub: "Weight, height, goal",
-  statLabels: ["Pace", "Shoe", "Reason", "Safety"],
-  statValues: ["min/km", "Cushion / stability", "Detailed explanation", "Precautions"],
-  formBadge: "Input",
-  formTitle: "Tell us your basic information and goal.",
+    "체중, 키, 목표를 입력하면 AI가 러닝 페이스, 러닝화 종류, 주의사항까지 한국어 상세 리포트로 정리해 드립니다.",
+  heroPoints: ["상세 리포트", "러닝화 추천", "안전 주의문"],
+  statTitle: "즉시 추천",
+  statSub: "체중 · 키 · 목표 입력",
+  statLabels: ["페이스", "러닝화", "근거", "안전"],
+  statValues: ["분/km", "쿠션 / 안정화", "상세 설명", "주의사항"],
+  formBadge: "입력",
+  formTitle: "기본 정보와 목표를 알려주세요.",
   formLead:
-    "If the values are invalid, we will show a message immediately. After submit, AI will generate a detailed report.",
-  weightLabel: "Weight (kg)",
-  heightLabel: "Height (cm)",
-  weightPlaceholder: "e.g. 68",
-  heightPlaceholder: "e.g. 173",
-  goalLabel: "Goal",
-  goalPlaceholder: "Select your goal",
+    "숫자가 맞지 않으면 바로 안내하고, 제출 후에는 AI가 상세 리포트를 생성합니다.",
+  weightLabel: "체중 (kg)",
+  heightLabel: "키 (cm)",
+  weightPlaceholder: "예: 68",
+  heightPlaceholder: "예: 173",
+  goalLabel: "목표",
+  goalPlaceholder: "목표를 선택하세요",
   goalOptions: [
-    "Weight loss",
-    "5K finish",
-    "10K challenge",
-    "Improve pace",
-    "Injury prevention",
+    "체중 감량",
+    "5km 완주",
+    "10km 도전",
+    "기록 향상",
+    "부상 예방",
   ],
-  detailLabel: "Goal details",
-  detailPlaceholder: "e.g. I want to finish 5K without overdoing it in 8 weeks.",
-  sampleLabels: ["Weight loss", "5K finish", "Improve pace"],
-  submitLabel: "Get recommendation",
-  hint: "We prioritize sustainable running over aggressive pace.",
-  resultBadge: "Result",
-  resultTitle: "AI detailed report",
-  copyLabel: "Copy",
-  initialStatusTitle: "Enter your info and press Get recommendation.",
+  detailLabel: "목표 설명",
+  detailPlaceholder: "예: 8주 안에 5km를 무리 없이 완주하고 싶어요.",
+  sampleLabels: ["체중 감량", "5km 완주", "기록 향상"],
+  submitLabel: "추천받기",
+  hint: "무리한 속도보다 지속 가능한 러닝을 우선합니다.",
+  resultBadge: "결과",
+  resultTitle: "AI 상세 리포트",
+  copyLabel: "복사",
+  initialStatusTitle: "입력 후 추천받기 버튼을 눌러주세요.",
   initialStatusDetail:
-    "We will recommend a pace and shoe type based on weight, height, and goal.",
-  resultSummary: "Summary",
-  paceHeading: "Recommended pace",
-  shoeHeading: "Shoe type",
-  reasonHeading: "Why this recommendation",
-  cautionHeading: "Precautions",
-  nextHeading: "Next steps",
+    "체중, 키, 목표를 바탕으로 러닝 페이스와 러닝화 종류를 추천합니다.",
+  resultSummary: "요약",
+  paceHeading: "추천 페이스",
+  shoeHeading: "러닝화 종류",
+  reasonHeading: "추천 이유",
+  cautionHeading: "주의사항",
+  nextHeading: "실행 팁",
 };
 
 function clamp(value, min, max) {
@@ -87,64 +87,64 @@ function buildFallbackRecommendation({ weightKg, heightCm, goalType, goalDetail 
 
   let paceCenter = 6.6;
   let paceSpread = 0.35;
-  let shoeType = "Daily cushioned running shoe";
+  let shoeType = "데일리 쿠션 러닝화";
   let shoeFeatures = [
-    "Enough midsole cushion to distribute impact",
-    "Stable fit without feeling overly heavy",
-    "All-around support that works for beginners",
+    "충격을 분산해 주는 충분한 미드솔 쿠션",
+    "너무 무겁지 않으면서 안정적인 착용감",
+    "초보자도 쓰기 좋은 범용형 지지력",
   ];
-  let intensity = "Comfortable jog where you can still talk";
+  let intensity = "대화가 가능한 편안한 조깅";
 
-  if (goalType === "Weight loss") {
+  if (goalType === "체중 감량") {
     paceCenter = easyBody ? 7.6 : mediumBody ? 7.1 : 6.8;
     paceSpread = 0.4;
-    shoeType = "High-cushion stability shoe";
+    shoeType = "고쿠션 안정화 러닝화";
     shoeFeatures = [
-      "Thick cushion to absorb impact",
-      "Wide platform to reduce wobble on landing",
-      "Comfortable for both walking and running",
+      "두꺼운 쿠션으로 충격 흡수 강화",
+      "착지 흔들림을 줄여주는 넓은 플랫폼",
+      "걷기와 달리기를 함께 하기 좋은 편안함",
     ];
-    intensity = "Low-intensity steady run with short breathing room";
-  } else if (goalType === "5K finish") {
+    intensity = "숨이 차지 않는 낮은 강도의 지속주";
+  } else if (goalType === "5km 완주") {
     paceCenter = easyBody ? 7.0 : 6.5;
     paceSpread = 0.35;
-    shoeType = "Daily trainer";
+    shoeType = "데일리 트레이너";
     shoeFeatures = [
-      "Soft and comfortable for early adaptation",
-      "Works well from short runs up to 5K",
-      "Stable and not overly aggressive",
+      "적응기에 편안한 부드러운 착화감",
+      "짧은 러닝부터 5km까지 무난하게 사용 가능",
+      "공격적이지 않고 안정적인 밸런스",
     ];
-    intensity = "Easy at first, slightly breathy near the end";
-  } else if (goalType === "10K challenge") {
+    intensity = "초반은 여유롭게, 후반은 약간 숨이 찰 수 있는 정도";
+  } else if (goalType === "10km 도전") {
     paceCenter = mediumBody ? 6.2 : 5.9;
     paceSpread = 0.3;
-    shoeType = "Light daily-tempo shoe";
+    shoeType = "가벼운 데일리 템포화";
     shoeFeatures = [
-      "Responsive enough to keep a good rhythm",
-      "Balanced cushioning for longer runs",
-      "Versatile for training and race day",
+      "리듬을 유지하기 좋은 반응성",
+      "장거리에도 무난한 균형형 쿠션",
+      "훈련과 레이스에 두루 쓰기 좋은 활용도",
     ];
-    intensity = "Steady effort that keeps your pace from fading";
-  } else if (goalType === "Improve pace") {
+    intensity = "페이스가 크게 무너지지 않는 일정한 노력도";
+  } else if (goalType === "기록 향상") {
     paceCenter = lightBody ? 5.2 : 5.5;
     paceSpread = 0.25;
-    shoeType = "Tempo trainer or lightweight rebound shoe";
+    shoeType = "템포 트레이너 또는 경량 반발화";
     shoeFeatures = [
-      "Bounce that helps tempo sessions feel smoother",
-      "Lightweight for quick turnover",
-      "Good energy return for pace work",
+      "템포 훈련을 부드럽게 해주는 반발감",
+      "빠른 회전수를 돕는 가벼운 무게",
+      "페이스 훈련에 좋은 에너지 리턴",
     ];
-    intensity = "Breathable but controlled target pace";
-  } else if (goalType === "Injury prevention") {
+    intensity = "숨은 차지만 통제 가능한 목표 페이스";
+  } else if (goalType === "부상 예방") {
     paceCenter = easyBody ? 7.8 : 7.2;
     paceSpread = 0.45;
-    shoeType = "Max-cushion stability shoe";
+    shoeType = "맥스 쿠션 안정화 러닝화";
     shoeFeatures = [
-      "Extra-soft cushioning to reduce impact",
-      "Support that helps protect ankles and knees",
-      "Best for recovery runs and easy mileage",
+      "충격을 줄여주는 매우 부드러운 쿠션",
+      "발목과 무릎 보호에 도움이 되는 지지력",
+      "회복주와 가벼운 러닝에 가장 적합",
     ];
-    intensity = "Very easy recovery jog";
+    intensity = "아주 가벼운 회복 조깅";
   }
 
   const pace = paceRange(paceCenter, paceSpread);
@@ -156,42 +156,42 @@ function buildFallbackRecommendation({ weightKg, heightCm, goalType, goalDetail 
       intensity,
       explanation:
         bmi >= 28
-          ? "We prioritized impact reduction and a stable landing pattern."
+          ? "충격을 줄이고 착지가 안정되도록 우선순위를 두었습니다."
           : bmi >= 24
-            ? "We balanced consistency with adaptation."
-            : "We chose a realistic pace that supports form and rhythm.",
+            ? "지속성과 적응 속도의 균형을 맞췄습니다."
+            : "자세와 리듬을 유지할 수 있는 현실적인 속도를 선택했습니다.",
     },
     shoeRecommendation: {
       type: shoeType,
       features: shoeFeatures,
       fitNote:
         bmi >= 28
-          ? "Look for a roomy toe box and generous cushioning."
+          ? "발가락 공간이 넉넉하고 쿠션이 충분한 모델이 좋습니다."
           : bmi >= 24
-            ? "A neutral shoe with balanced cushioning should work well."
-            : "A lighter, more responsive shoe could also be a good option.",
+            ? "중립형에 균형 잡힌 쿠션이 잘 맞을 가능성이 큽니다."
+            : "가볍고 반발감이 좋은 모델도 좋은 선택이 될 수 있습니다.",
     },
     reasoning: [
-      `Your BMI is about ${bmi.toFixed(1)}, so we prioritized ${easyBody ? "impact absorption and stability" : "sustainable rhythm"}.`,
-      `Because your goal is "${goalType}", we focused on ${goalType === "Improve pace" ? "pace efficiency" : "consistency"} first.`,
-      "When choosing shoes, check comfort, landing stability, and whether they still feel good after 30 minutes.",
+      `BMI가 약 ${bmi.toFixed(1)}이므로 ${easyBody ? "충격 흡수와 안정성" : "지속 가능한 리듬"}에 더 무게를 두었습니다.`,
+      `목표가 "${goalType}"이기 때문에 ${goalType === "기록 향상" ? "페이스 효율" : "지속성"}을 우선했습니다.`,
+      "러닝화를 고를 때는 착화감, 착지 안정성, 30분 후에도 편한지 함께 확인하세요.",
     ],
     cautions: [
-      "Do not start at the target pace for long sessions right away. Build gradually.",
-      "If you feel knee, ankle, or calf pain, lower the intensity and rest.",
-      "The higher your weight, the more important form and recovery become.",
+      "목표 페이스로 바로 긴 거리를 뛰지 말고, 단계적으로 적응하세요.",
+      "무릎, 발목, 종아리 통증이 느껴지면 강도를 낮추고 휴식하세요.",
+      "체중이 높을수록 자세와 회복 관리가 더 중요합니다.",
     ],
     nextSteps: [
-      "For the first 2 weeks, run 15-30 seconds slower than the recommendation.",
-      "Try shoes with running socks on and check toe space and heel hold.",
-      "Start with 2-3 runs per week, then increase only when your body feels ready.",
+      "처음 2주는 추천 페이스보다 15~30초 느리게 달려보세요.",
+      "러닝 양말을 신고 신어 보며 발가락 공간과 뒤꿈치 고정을 확인하세요.",
+      "주 2~3회부터 시작하고, 몸이 준비됐을 때만 천천히 늘리세요.",
     ],
   };
 }
 
 function setBusy(isBusy) {
   submitBtn.disabled = isBusy;
-  submitBtn.textContent = isBusy ? "Generating..." : UI.submitLabel;
+  submitBtn.textContent = isBusy ? "생성 중..." : UI.submitLabel;
 }
 
 function showError(message) {
@@ -323,7 +323,7 @@ function localizeStaticText() {
 }
 
 function renderRecommendation(data) {
-  document.getElementById("summary-text").textContent = data.summary || "No summary available.";
+  document.getElementById("summary-text").textContent = data.summary || "요약이 없습니다.";
   document.getElementById("pace-range").textContent = data.paceRecommendation?.paceRange || "-";
   document.getElementById("pace-intensity").textContent = data.paceRecommendation?.intensity || "";
   document.getElementById("pace-explanation").textContent =
@@ -367,11 +367,11 @@ function renderRecommendation(data) {
   copyBtn.disabled = false;
   if (data.source === "fallback") {
     setStatus(
-      "Local recommendation is ready.",
-      "We fell back to in-browser logic because the server was unavailable.",
+      "로컬 추천을 표시했습니다.",
+      "서버 연결이 되지 않아 브라우저 내 로직으로 대체했습니다.",
     );
   } else {
-    setStatus("Recommendation is ready.", "Check the cards below for your pace and shoe type.");
+    setStatus("추천이 준비되었습니다.", "아래 카드에서 페이스와 러닝화 종류를 확인하세요.");
   }
 }
 
@@ -387,16 +387,16 @@ function validateForm() {
   const goalDetail = inputs.goalDetail.value.trim();
 
   if (!Number.isFinite(weightKg) || weightKg < 30 || weightKg > 300) {
-    return "Weight must be a number between 30 and 300 kg.";
+    return "체중은 30~300 사이의 숫자로 입력해 주세요.";
   }
   if (!Number.isFinite(heightCm) || heightCm < 100 || heightCm > 250) {
-    return "Height must be a number between 100 and 250 cm.";
+    return "키는 100~250 사이의 숫자로 입력해 주세요.";
   }
   if (!goalType) {
-    return "Please select a goal.";
+    return "목표를 선택해 주세요.";
   }
   if (!goalDetail) {
-    return "Please enter a short goal description.";
+    return "목표 설명을 입력해 주세요.";
   }
 
   return null;
@@ -411,14 +411,14 @@ form.addEventListener("submit", async (event) => {
     showError(validationError);
     hideResults();
     setStatus(
-      "Please check your inputs.",
-      "Review your weight, height, and goal, then press Get recommendation again.",
+      "입력값을 다시 확인해 주세요.",
+      "체중, 키, 목표를 확인한 뒤 다시 추천받기를 눌러주세요.",
     );
     return;
   }
 
   setBusy(true);
-  setStatus("Generating recommendation...", "Please wait while the detailed report is prepared.");
+  setStatus("추천을 생성 중입니다...", "상세 리포트를 준비하는 중입니다. 잠시만 기다려 주세요.");
   hideResults();
 
   try {
@@ -437,7 +437,7 @@ form.addEventListener("submit", async (event) => {
 
     const data = await response.json();
     if (!response.ok) {
-      throw new Error(data.error || "Recommendation generation failed.");
+      throw new Error(data.error || "추천 생성에 실패했습니다.");
     }
 
     renderRecommendation(data.recommendation);
@@ -450,8 +450,8 @@ form.addEventListener("submit", async (event) => {
     });
     renderRecommendation(fallback);
     setStatus(
-      "Switched to local recommendation.",
-      "The browser is showing a built-in fallback because the server could not be reached.",
+      "로컬 추천으로 전환했습니다.",
+      "서버에 연결할 수 없어 브라우저 내 기본 추천을 보여주고 있습니다.",
     );
     showError("");
   } finally {
@@ -465,12 +465,12 @@ copyBtn.addEventListener("click", async () => {
 
   try {
     await navigator.clipboard.writeText(text);
-    copyBtn.textContent = "Copied";
+    copyBtn.textContent = "복사됨";
     window.setTimeout(() => {
       copyBtn.textContent = UI.copyLabel;
     }, 1500);
   } catch {
-    showError("Copy is not supported in this environment.");
+    showError("이 환경에서는 복사를 지원하지 않습니다.");
   }
 });
 
@@ -481,7 +481,7 @@ document.querySelectorAll(".sample-chip").forEach((button) => {
     inputs.heightCm.value = params.get("heightCm") || "";
     inputs.goalType.value = params.get("goalType") || "";
     inputs.goalDetail.value = params.get("goalDetail") || "";
-    setStatus("Sample input applied.", "Edit the values and press Get recommendation.");
+    setStatus("예시 입력을 적용했습니다.", "값을 수정한 뒤 추천받기를 눌러주세요.");
   });
 });
 
